@@ -49,7 +49,7 @@ public class EmployeeService {
         employees.get(email).setRole(role);
     }
 
-    public List<Employee> filterEmployeesByMail(String email) {
+    public List<Employee> filterEmployeesByEMail(String email) {
         List<Employee> employeesByMail = new ArrayList<Employee>();
         for (Employee employee : employees.values())
         {
@@ -82,6 +82,41 @@ public class EmployeeService {
         return employeesByName;
     }
 
+    public List<Employee> filterEmployeesBySurname(String surname) {
+        List<Employee> employeesBySurName = new ArrayList<Employee>();
+        for (Employee employee : employees.values())
+        {
+            if (employee.getName().equals(surname)){
+                employeesBySurName.add(employee);
+            }
+        }
+        return employeesBySurName;
+    }
+
+    public List<Employee> sortEmployeesByRole(String role) {
+
+        List<Employee> sortedEmployeesByRole = new ArrayList<Employee>();
+        for (Employee employee : employees.values())
+        {
+            if (employee.getRole().equals(role)){
+                sortedEmployeesByRole.add(employee);
+            }
+        }
+        return sortedEmployeesByRole;
+    }
+
+
+    public List<Employee> sortEmployeesByName(String name) {
+
+        List<Employee> sortedEmployeesByName = new ArrayList<Employee>();
+        for (Employee employee : employees.values())
+        {
+            if (employee.getName().equals(name)){
+                sortedEmployeesByName.add(employee);
+            }
+        }
+        return sortedEmployeesByName;
+    }
 
     public void deleteEmployee(String email) {
         employees.remove(employees.get(email));
